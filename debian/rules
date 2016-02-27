@@ -1,0 +1,14 @@
+#!/usr/bin/make -f
+
+#export DH_VERBOSE = 1
+
+UPSTREAM_GIT := https://github.com/01org/isa-l.git
+-include /usr/share/openstack-pkg-tools/pkgos.make
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+%:
+	dh $@  --with autoreconf --parallel
+
+override_dh_installchangelogs:
+	dh_installchangelogs Release_notes.txt

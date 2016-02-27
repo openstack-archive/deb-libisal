@@ -1,0 +1,38 @@
+Source: libisal
+Priority: optional
+Maintainer: Ondřej Nový <novy@ondrej.org>
+Build-Depends: debhelper (>=9),
+               autotools-dev,
+               dh-autoreconf,
+               yasm,
+Standards-Version: 3.9.7
+Section: libs
+Homepage: https://github.com/01org/isa-l
+Vcs-Git: https://anonscm.debian.org/git/openstack/libisal.git
+Vcs-Browser: https://anonscm.debian.org/cgit/openstack/libisal.git
+
+Package: libisal-dev
+Section: libdevel
+Architecture: any
+Depends: libisal2 (= ${binary:Version}), ${misc:Depends}
+Description: Intel(R) Intelligent Storage Acceleration Library - devel files
+ Collection of low-level functions used in storage applications.
+ Contains fast erasure codes that implement a general
+ Reed-Solomon type encoding for blocks of data that helps protect against
+ erasure of whole blocks. The general ISA-L library contains an expanded
+ set of functions used for data protection, hashing, encryption, etc.
+ .
+ This package contains the development files needed to build against the shared
+ library.
+
+Package: libisal2
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Intel(R) Intelligent Storage Acceleration Library - shared library
+ Collection of low-level functions used in storage applications.
+ Contains fast erasure codes that implement a general
+ Reed-Solomon type encoding for blocks of data that helps protect against
+ erasure of whole blocks. The general ISA-L library contains an expanded
+ set of functions used for data protection, hashing, encryption, etc.
+ .
+ This package contains the shared library.

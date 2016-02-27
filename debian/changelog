@@ -1,0 +1,5 @@
+libisal (2.15.0-1) UNRELEASED; urgency=medium
+
+  * Initial release (Closes: #815910)
+
+ -- Ondřej Nový <novy@ondrej.org>  Sat, 27 Feb 2016 14:00:50 +0100
