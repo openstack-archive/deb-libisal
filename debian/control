@@ -1,6 +1,7 @@
 Source: libisal
 Priority: optional
-Maintainer: Ondřej Nový <novy@ondrej.org>
+Maintainer: PKG OpenStack <openstack-devel@lists.alioth.debian.org>
+Uploaders: Ondřej Nový <novy@ondrej.org>,
 Build-Depends: debhelper (>=9),
                autotools-dev,
                dh-autoreconf,
