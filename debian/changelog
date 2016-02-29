@@ -1,4 +1,4 @@
-libisal (2.15.0-1) UNRELEASED; urgency=medium
+libisal (2.15.0-1) unstable; urgency=medium
 
   * Initial release (Closes: #815910)
 
