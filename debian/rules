@@ -12,3 +12,8 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
 override_dh_installchangelogs:
 	dh_installchangelogs Release_notes.txt
+
+ifeq (,$(findstring nocheck, $(DEB_BUILD_OPTIONS)))
+override_dh_auto_test:
+	make check
+endif

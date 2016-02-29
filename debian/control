@@ -36,7 +36,4 @@ Description: Intel(R) Intelligent Storage Acceleration Library - shared library
  erasure of whole blocks. The general ISA-L library contains an expanded
  set of functions used for data protection, hashing, encryption, etc.
  .
- WARNING: This package will NOT work without SSE4.1 or AVX processor
- extension.
- .
  This package contains the shared library.
