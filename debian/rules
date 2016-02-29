@@ -15,5 +15,5 @@ override_dh_installchangelogs:
 
 ifeq (,$(findstring nocheck, $(DEB_BUILD_OPTIONS)))
 override_dh_auto_test:
-	make check
+	$(MAKE) check
 endif
