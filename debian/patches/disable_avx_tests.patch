@@ -1,0 +1,44 @@
+Description: Disable AVX tests
+ This unit tests doesn't run on Debian infrastructure
+Author: Ondřej Nový <novy@ondrej.org>
+Forwarded: no
+Last-Update: 2016-02-29
+--- a/erasure_code/Makefile.am
++++ b/erasure_code/Makefile.am
+@@ -102,7 +102,6 @@
+ 		erasure_code/gf_vect_mul_base_test \
+ 		erasure_code/gf_vect_dot_prod_base_test \
+ 		erasure_code/gf_vect_dot_prod_test \
+-		erasure_code/gf_vect_dot_prod_avx_test \
+ 		erasure_code/gf_vect_dot_prod_sse_test \
+ 		erasure_code/gf_2vect_dot_prod_sse_test \
+ 		erasure_code/gf_3vect_dot_prod_sse_test \
+@@ -114,7 +113,6 @@
+ 		erasure_code/erasure_code_base_perf \
+ 		erasure_code/erasure_code_sse_perf \
+ 		erasure_code/gf_vect_dot_prod_1tbl \
+-		erasure_code/gf_vect_dot_prod_avx_perf\
+ 		erasure_code/gf_vect_dot_prod_sse_perf\
+ 		erasure_code/gf_2vect_dot_prod_sse_perf \
+ 		erasure_code/gf_3vect_dot_prod_sse_perf \
+@@ -133,10 +131,8 @@
+ 		erasure_code/erasure_code_update_test
+ 
+ unit_tests   += erasure_code/gf_vect_mul_sse_test \
+-		erasure_code/gf_vect_mul_avx_test \
+ 		erasure_code/gf_vect_mul_base_test \
+ 		erasure_code/gf_vect_dot_prod_sse_test \
+-		erasure_code/gf_vect_dot_prod_avx_test \
+ 		erasure_code/gf_2vect_dot_prod_sse_test \
+ 		erasure_code/gf_3vect_dot_prod_sse_test \
+ 		erasure_code/gf_4vect_dot_prod_sse_test \
+@@ -150,9 +146,7 @@
+ 
+ perf_tests   += erasure_code/gf_vect_mul_perf \
+ 		erasure_code/gf_vect_mul_sse_perf \
+-		erasure_code/gf_vect_mul_avx_perf \
+ 		erasure_code/gf_vect_dot_prod_sse_perf \
+-		erasure_code/gf_vect_dot_prod_avx_perf \
+ 		erasure_code/gf_2vect_dot_prod_sse_perf \
+ 		erasure_code/gf_3vect_dot_prod_sse_perf \
+ 		erasure_code/gf_4vect_dot_prod_sse_perf \
