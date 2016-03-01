@@ -1,4 +1,4 @@
-libisal (2.15.0-2) UNRELEASED; urgency=medium
+libisal (2.15.0-2) unstable; urgency=medium
 
   * Use 'make check' instead of 'make test' to test only multibinary version.
   * Removed patch disable_avx_tests.patch
@@ -6,7 +6,7 @@ libisal (2.15.0-2) UNRELEASED; urgency=medium
     based functions too.
   * Fixed architecture in d/control (Closes: #816422).
 
- -- Ondřej Nový <novy@ondrej.org>  Mon, 29 Feb 2016 18:17:51 +0100
+ -- Ondřej Nový <novy@ondrej.org>  Tue, 01 Mar 2016 21:44:10 +0100
 
 libisal (2.15.0-1) unstable; urgency=medium
 
