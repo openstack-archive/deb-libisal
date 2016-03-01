@@ -14,7 +14,7 @@ Vcs-Browser: https://anonscm.debian.org/cgit/openstack/libisal.git
 
 Package: libisal-dev
 Section: libdevel
-Architecture: any
+Architecture: amd64 kfreebsd-amd64
 Depends: libisal2 (= ${binary:Version}), ${misc:Depends}
 Description: Intel(R) Intelligent Storage Acceleration Library - devel files
  Collection of low-level functions used in storage applications.
@@ -27,7 +27,7 @@ Description: Intel(R) Intelligent Storage Acceleration Library - devel files
  library.
 
 Package: libisal2
-Architecture: amd64
+Architecture: amd64 kfreebsd-amd64
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Intel(R) Intelligent Storage Acceleration Library - shared library
  Collection of low-level functions used in storage applications.
