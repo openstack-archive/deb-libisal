@@ -6,7 +6,7 @@ Build-Depends: debhelper (>=9),
                autotools-dev,
                dh-autoreconf,
                yasm,
-Standards-Version: 3.9.7
+Standards-Version: 3.9.8
 Section: libs
 Homepage: https://github.com/01org/isa-l
 Vcs-Git: https://anonscm.debian.org/git/openstack/libisal.git
