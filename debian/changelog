@@ -1,11 +1,11 @@
-libisal (2.16.0-1) UNRELEASED; urgency=medium
+libisal (2.16.0-1) unstable; urgency=medium
 
   * New upstream release
   * Standards-Version is 3.9.8 now (no change)
   * d/{control,copyright}: Use my @debian.org email address
   * Added shlib-with-executable-stack-fix.patch
 
- -- Ondřej Nový <novy@ondrej.org>  Sat, 09 Apr 2016 19:23:32 +0200
+ -- Ondřej Nový <onovy@debian.org>  Fri, 24 Jun 2016 01:09:43 +0200
 
 libisal (2.15.0-2) unstable; urgency=medium
 
