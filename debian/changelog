@@ -1,5 +1,6 @@
-libisal (2.15.0-3) UNRELEASED; urgency=medium
+libisal (2.16.0-1) UNRELEASED; urgency=medium
 
+  * New upstream release
   * Standards-Version is 3.9.8 now (no change)
   * d/{control,copyright}: Use my @debian.org email address
 
