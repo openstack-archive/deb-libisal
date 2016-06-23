@@ -1,4 +1,4 @@
-EXTRA_DIST = autogen.sh Makefile.unx make.inc Makefile.nmake isa-l.def About_bsd.txt
+EXTRA_DIST = autogen.sh Makefile.unx make.inc Makefile.nmake isa-l.def LICENSE README.md
 CLEANFILES =
 LDADD =
 AM_MAKEFLAGS = --no-print-directory
@@ -25,10 +25,13 @@ perf_tests32=
 # Include units
 
 include erasure_code/Makefile.am
+include raid/Makefile.am
+include crc/Makefile.am
+include igzip/Makefile.am
 
 # LIB version info not necessarily the same as package version
 LIBISAL_CURRENT=2
-LIBISAL_REVISION=14
+LIBISAL_REVISION=16
 LIBISAL_AGE=0
 
 lib_LTLIBRARIES = libisal.la

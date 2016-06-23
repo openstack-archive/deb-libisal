@@ -1,7 +1,8 @@
-  Copyright(c) 2011-2016 Intel Corporation All rights reserved.
+/**********************************************************************
+  Copyright(c) 2011-2013 Intel Corporation All rights reserved.
 
   Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions
+  modification, are permitted provided that the following conditions 
   are met:
     * Redistributions of source code must retain the above copyright
       notice, this list of conditions and the following disclaimer.
@@ -24,3 +25,46 @@
   THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
   (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+**********************************************************************/
+#include <stdio.h>
+#include <stdlib.h>
+#include "raid.h"
+#include "types.h"
+
+#define TEST_SOURCES 16
+#define TEST_LEN     16*1024
+
+int main(int argc, char *argv[])
+{
+	int i, j, should_pass, should_fail;
+	void *buffs[TEST_SOURCES + 1];
+
+	printf("XOR example\n");
+	for (i = 0; i < TEST_SOURCES + 1; i++) {
+		void *buf;
+		if (posix_memalign(&buf, 16, TEST_LEN)) {
+			printf("alloc error: Fail");
+			return 1;
+		}
+		buffs[i] = buf;
+	}
+
+	printf("Make random data\n");
+	for (i = 0; i < TEST_SOURCES + 1; i++)
+		for (j = 0; j < TEST_LEN; j++)
+			((char *)buffs[i])[j] = rand();
+
+	printf("Generate xor parity\n");
+	xor_gen_sse(TEST_SOURCES + 1, TEST_LEN, buffs);
+
+	printf("Check parity: ");
+	should_pass = xor_check_sse(TEST_SOURCES + 1, TEST_LEN, buffs);
+	printf("%s\n", should_pass == 0 ? "Pass" : "Fail");
+
+	printf("Find corruption: ");
+	((char *)buffs[TEST_SOURCES / 2])[TEST_LEN / 2] ^= 1;	// flip one bit
+	should_fail = xor_check_sse(TEST_SOURCES + 1, TEST_LEN, buffs);	//recheck
+	printf("%s\n", should_fail != 0 ? "Pass" : "Fail");
+
+	return 0;
+}

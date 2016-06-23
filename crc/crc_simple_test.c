@@ -1,4 +1,5 @@
-  Copyright(c) 2011-2016 Intel Corporation All rights reserved.
+/**********************************************************************
+  Copyright(c) 2011-2013 Intel Corporation All rights reserved.
 
   Redistribution and use in source and binary forms, with or without
   modification, are permitted provided that the following conditions
@@ -24,3 +25,39 @@
   THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
   (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+**********************************************************************/
+#include <stdio.h>
+#include <stdint.h>
+#include "crc.h"
+
+const uint16_t init_crc_16 = 0x1234;
+const uint16_t t10_dif_expected = 0x60b3;
+const uint32_t init_crc_32 = 0x12345678;
+const uint32_t ieee_expected = 0x2ceadbe3;
+
+int main(void)
+{
+	unsigned char p_buf[48];
+	uint16_t t10_dif_computed;
+	uint32_t ieee_computed;
+	int i;
+
+	for (i = 0; i < 48; i++)
+		p_buf[i] = i;
+
+	t10_dif_computed = crc16_t10dif(init_crc_16, p_buf, 48);
+
+	if (t10_dif_computed != t10_dif_expected)
+		printf("WRONG CRC-16(T10 DIF) value\n");
+	else
+		printf("CORRECT CRC-16(T10 DIF) value\n");
+
+	ieee_computed = crc32_ieee(init_crc_32, p_buf, 48);
+
+	if (ieee_computed != ieee_expected)
+		printf("WRONG CRC-32(IEEE) value\n");
+	else
+		printf("CORRECT CRC-32(IEEE) value\n");
+
+	return 0;
+}

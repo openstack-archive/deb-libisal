@@ -1,4 +1,5 @@
-  Copyright(c) 2011-2016 Intel Corporation All rights reserved.
+/**********************************************************************
+  Copyright(c) 2011-2015 Intel Corporation All rights reserved.
 
   Redistribution and use in source and binary forms, with or without
   modification, are permitted provided that the following conditions
@@ -24,3 +25,62 @@
   THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
   (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+**********************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
+#include <sys/time.h>
+#include "crc.h"
+#include "test.h"
+
+//#define CACHED_TEST
+#ifdef CACHED_TEST
+// Cached test, loop many times over small dataset
+# define TEST_LEN     8*1024
+# define TEST_LOOPS   400000
+# define TEST_TYPE_STR "_warm"
+#else
+// Uncached test.  Pull from large mem base.
+#  define GT_L3_CACHE  32*1024*1024	/* some number > last level cache */
+#  define TEST_LEN     (2 * GT_L3_CACHE)
+#  define TEST_LOOPS   100
+#  define TEST_TYPE_STR "_cold"
+#endif
+
+#ifndef TEST_SEED
+# define TEST_SEED 0x1234
+#endif
+
+#define TEST_MEM TEST_LEN
+
+int main(int argc, char *argv[])
+{
+	int i;
+	void *buf;
+	uint16_t crc;
+	struct perf start, stop;
+
+	printf("crc16_t10dif_perf:\n");
+
+	if (posix_memalign(&buf, 1024, TEST_LEN)) {
+		printf("alloc error: Fail");
+		return -1;
+	}
+
+	printf("Start timed tests\n");
+	fflush(0);
+
+	crc = crc16_t10dif(TEST_SEED, buf, TEST_LEN);
+	perf_start(&start);
+	for (i = 0; i < TEST_LOOPS; i++) {
+		crc = crc16_t10dif(TEST_SEED, buf, TEST_LEN);
+	}
+	perf_stop(&stop);
+	printf("crc16_t10dif" TEST_TYPE_STR ": ");
+	perf_print(stop, start, (long long)TEST_LEN * i);
+
+	printf("finish 0x%x\n", crc);
+	return 0;
+}
