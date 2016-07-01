@@ -1,3 +1,9 @@
+libisal (2.16.0-1~bpo8+1) jessie-backports; urgency=medium
+
+  * Rebuild for jessie-backports.
+
+ -- Ondřej Nový <onovy@debian.org>  Fri, 01 Jul 2016 22:16:23 +0200
+
 libisal (2.16.0-1) unstable; urgency=medium
 
   * New upstream release
