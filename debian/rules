@@ -8,7 +8,7 @@ UPSTREAM_GIT := https://github.com/01org/isa-l.git
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
 %:
-	dh $@  --with autoreconf --parallel
+	dh $@
 
 override_dh_installchangelogs:
 	dh_installchangelogs Release_notes.txt
