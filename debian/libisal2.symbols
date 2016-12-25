@@ -5,8 +5,6 @@ libisal.so.2 libisal2 #MINVER#
  bit_reverse@Base 2.16.0
  convert_dist_to_dist_sym@Base 2.16.0
  convert_length_to_len_sym@Base 2.16.0
- copy_in_crc_01@Base 2.16.0
- copy_in_crc_04@Base 2.16.0
  crc16_t10dif@Base 2.16.0
  crc16_t10dif_01@Base 2.16.0
  crc16_t10dif_01_slver@Base 2.16.0
@@ -20,6 +18,8 @@ libisal.so.2 libisal2 #MINVER#
  crc16_t10dif_slver@Base 2.16.0
  crc16_t10dif_slver_0003011a@Base 2.16.0
  crc32_gzip@Base 2.16.0
+ crc32_gzip_01@Base 2.17.0
+ crc32_gzip_base@Base 2.17.0
  crc32_ieee@Base 2.16.0
  crc32_ieee_01@Base 2.16.0
  crc32_ieee_01_slver@Base 2.16.0
@@ -45,8 +45,60 @@ libisal.so.2 libisal2 #MINVER#
  crc32_iscsi_slver@Base 2.16.0
  crc32_iscsi_slver_0003011c@Base 2.16.0
  crc32_table_iscsi_base@Base 2.16.0
- crc_512to32_01@Base 2.16.0
- crc_512to32_04@Base 2.16.0
+ crc64_ecma_norm@Base 2.17.0
+ crc64_ecma_norm_base@Base 2.17.0
+ crc64_ecma_norm_base_slver@Base 2.17.0
+ crc64_ecma_norm_base_slver_00000019@Base 2.17.0
+ crc64_ecma_norm_by8@Base 2.17.0
+ crc64_ecma_norm_by8_slver@Base 2.17.0
+ crc64_ecma_norm_by8_slver_0100001a@Base 2.17.0
+ crc64_ecma_norm_slver@Base 2.17.0
+ crc64_ecma_norm_slver_00000018@Base 2.17.0
+ crc64_ecma_refl@Base 2.17.0
+ crc64_ecma_refl_base@Base 2.17.0
+ crc64_ecma_refl_base_slver@Base 2.17.0
+ crc64_ecma_refl_base_slver_0000001c@Base 2.17.0
+ crc64_ecma_refl_by8@Base 2.17.0
+ crc64_ecma_refl_by8_slver@Base 2.17.0
+ crc64_ecma_refl_by8_slver_0100001d@Base 2.17.0
+ crc64_ecma_refl_slver@Base 2.17.0
+ crc64_ecma_refl_slver_0000001b@Base 2.17.0
+ crc64_iso_norm@Base 2.17.0
+ crc64_iso_norm_base@Base 2.17.0
+ crc64_iso_norm_base_slver@Base 2.17.0
+ crc64_iso_norm_base_slver_0000001f@Base 2.17.0
+ crc64_iso_norm_by8@Base 2.17.0
+ crc64_iso_norm_by8_slver@Base 2.17.0
+ crc64_iso_norm_by8_slver_01000020@Base 2.17.0
+ crc64_iso_norm_slver@Base 2.17.0
+ crc64_iso_norm_slver_0000001e@Base 2.17.0
+ crc64_iso_refl@Base 2.17.0
+ crc64_iso_refl_base@Base 2.17.0
+ crc64_iso_refl_base_slver@Base 2.17.0
+ crc64_iso_refl_base_slver_00000022@Base 2.17.0
+ crc64_iso_refl_by8@Base 2.17.0
+ crc64_iso_refl_by8_slver@Base 2.17.0
+ crc64_iso_refl_by8_slver_01000023@Base 2.17.0
+ crc64_iso_refl_slver@Base 2.17.0
+ crc64_iso_refl_slver_00000021@Base 2.17.0
+ crc64_jones_norm@Base 2.17.0
+ crc64_jones_norm_base@Base 2.17.0
+ crc64_jones_norm_base_slver@Base 2.17.0
+ crc64_jones_norm_base_slver_00000025@Base 2.17.0
+ crc64_jones_norm_by8@Base 2.17.0
+ crc64_jones_norm_by8_slver@Base 2.17.0
+ crc64_jones_norm_by8_slver_01000026@Base 2.17.0
+ crc64_jones_norm_slver@Base 2.17.0
+ crc64_jones_norm_slver_00000024@Base 2.17.0
+ crc64_jones_refl@Base 2.17.0
+ crc64_jones_refl_base@Base 2.17.0
+ crc64_jones_refl_base_slver@Base 2.17.0
+ crc64_jones_refl_base_slver_00000028@Base 2.17.0
+ crc64_jones_refl_by8@Base 2.17.0
+ crc64_jones_refl_by8_slver@Base 2.17.0
+ crc64_jones_refl_by8_slver_01000029@Base 2.17.0
+ crc64_jones_refl_slver@Base 2.17.0
+ crc64_jones_refl_slver_00000027@Base 2.17.0
  create_code_tables@Base 2.16.0
  create_header@Base 2.16.0
  create_huff_lookup@Base 2.16.0
@@ -56,6 +108,10 @@ libisal.so.2 libisal2 #MINVER#
  create_packed_dist_table@Base 2.16.0
  create_packed_len_table@Base 2.16.0
  create_symbol_subset_huff_tree@Base 2.16.0
+ decode_huffman_code_block_stateless@Base 2.17.0
+ decode_huffman_code_block_stateless_01@Base 2.17.0
+ decode_huffman_code_block_stateless_04@Base 2.17.0
+ decode_huffman_code_block_stateless_base@Base 2.17.0
  detect_repeated_char@Base 2.16.0
  detect_repeated_char_length@Base 2.16.0
  ec_encode_data@Base 2.15.0
@@ -79,12 +135,8 @@ libisal.so.2 libisal2 #MINVER#
  ec_init_tables@Base 2.15.0
  ec_init_tables_slver@Base 2.15.0
  ec_init_tables_slver_00010068@Base 2.15.0
- file_size@Base 2.16.0
  find_code_lengths@Base 2.16.0
  flush_repeats@Base 2.16.0
- get_crc@Base 2.16.0
- get_crc_01@Base 2.16.0
- get_crc_base@Base 2.16.0
  gf_2vect_dot_prod_avx2@Base 2.15.0
  gf_2vect_dot_prod_avx2_slver@Base 2.15.0
  gf_2vect_dot_prod_avx2_slver_04050196@Base 2.15.0
@@ -240,31 +292,51 @@ libisal.so.2 libisal2 #MINVER#
  heap_push@Base 2.16.0
  huffman_tree_traversal@Base 2.16.0
  hufftables_default@Base 2.16.0
+ hufftables_static@Base 2.17.0
  isal_create_hufftables@Base 2.16.0
+ isal_create_hufftables_slver@Base 2.17.0
+ isal_create_hufftables_slver_00010086@Base 2.17.0
  isal_create_hufftables_subset@Base 2.16.0
+ isal_create_hufftables_subset_slver@Base 2.17.0
+ isal_create_hufftables_subset_slver_00010087@Base 2.17.0
  isal_deflate@Base 2.16.0
  isal_deflate_body@Base 2.16.0
  isal_deflate_body_01@Base 2.16.0
+ isal_deflate_body_02@Base 2.17.0
  isal_deflate_body_04@Base 2.16.0
  isal_deflate_body_base@Base 2.16.0
- isal_deflate_body_stateless@Base 2.16.0
- isal_deflate_body_stateless_01@Base 2.16.0
- isal_deflate_body_stateless_04@Base 2.16.0
- isal_deflate_body_stateless_base@Base 2.16.0
  isal_deflate_finish@Base 2.16.0
  isal_deflate_finish_01@Base 2.16.0
  isal_deflate_finish_base@Base 2.16.0
  isal_deflate_init@Base 2.16.0
- isal_deflate_init_01@Base 2.16.0
- isal_deflate_init_base@Base 2.16.0
  isal_deflate_init_slver@Base 2.16.0
  isal_deflate_init_slver_01030081@Base 2.16.0
+ isal_deflate_set_hufftables@Base 2.17.0
+ isal_deflate_set_hufftables_slver@Base 2.17.0
+ isal_deflate_set_hufftables_slver_00_01_008b@Base 2.17.0
  isal_deflate_slver@Base 2.16.0
  isal_deflate_slver_01030082@Base 2.16.0
  isal_deflate_stateless@Base 2.16.0
+ isal_deflate_stateless_init@Base 2.17.0
+ isal_deflate_stateless_init_slver@Base 2.17.0
+ isal_deflate_stateless_init_slver_00010084@Base 2.17.0
  isal_deflate_stateless_slver@Base 2.16.0
  isal_deflate_stateless_slver_01010083@Base 2.16.0
+ isal_inflate@Base 2.17.0
+ isal_inflate_init@Base 2.17.0
+ isal_inflate_init_slver@Base 2.17.0
+ isal_inflate_init_slver_00010088@Base 2.17.0
+ isal_inflate_slver@Base 2.17.0
+ isal_inflate_slver_0001008a@Base 2.17.0
+ isal_inflate_stateless@Base 2.17.0
+ isal_inflate_stateless_slver@Base 2.17.0
+ isal_inflate_stateless_slver_00010089@Base 2.17.0
  isal_update_histogram@Base 2.16.0
+ isal_update_histogram_01@Base 2.17.0
+ isal_update_histogram_04@Base 2.17.0
+ isal_update_histogram_base@Base 2.17.0
+ isal_update_histogram_slver@Base 2.17.0
+ isal_update_histogram_slver_00010085@Base 2.17.0
  pop_from_front@Base 2.16.0
  pq_check@Base 2.16.0
  pq_check_base@Base 2.16.0
@@ -290,6 +362,8 @@ libisal.so.2 libisal2 #MINVER#
  pq_gen_sse@Base 2.16.0
  pq_gen_sse_slver@Base 2.16.0
  pq_gen_sse_slver_00090032@Base 2.16.0
+ read_header@Base 2.17.0
+ read_header_stateful@Base 2.17.0
  repeated_char_header@Base 2.16.0
  set_huff_codes@Base 2.16.0
  write_header@Base 2.16.0
